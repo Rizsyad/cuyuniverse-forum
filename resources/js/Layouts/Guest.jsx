@@ -2,9 +2,7 @@ import React, {useState} from "react";
 import Dropdown from "@/Components/Default/Dropdown";
 import NavLink from "@/Components/Default/NavLink";
 import ResponsiveNavLink from "@/Components/Default/ResponsiveNavLink";
-import {MdLogin, MdDashboard, MdOutlineHome, MdSearch} from "react-icons/md";
 import {FaGithub} from "react-icons/fa";
-import {Link} from "@inertiajs/inertia-react";
 import NavBar from "@/Components/Default/NavBar";
 import DarkToggle from "@/Components/Homepage/DarkToggle";
 
