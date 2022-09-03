@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Comment;
+use App\Models\New\Showcase;
 use Illuminate\Database\Seeder;
 use App\Models\Posts;
 use App\Models\User;
@@ -27,5 +28,6 @@ class DatabaseSeeder extends Seeder
         User::factory()->count(20)->create();
         Posts::factory()->count(100)->create();
         Comment::factory()->count(30)->create();
+        Showcase::factory()->count(10)->create();
     }
 }

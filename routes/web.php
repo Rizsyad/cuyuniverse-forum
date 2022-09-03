@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\New\ShowcaseController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\OuterController;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('/post/comment', 'storeComment')->name('storeComment')->middleware('isValidUser');
             Route::post('/post/like/love', 'storeLike')->name('storeLike')->middleware('isValidUser');
             Route::post('/post/saved-post/saved', 'storeSavedPosts')->name('storeSavedPosts')->middleware('isValidUser');
+        }
+    );
+    //user showcase
+    Route::controller(ShowcaseController::class)->name('showcase.')->group(
+        function () {
+            Route::group(['prefix' => 'showcase'], function () {
+                Route::get('/', 'indexShowcase')->name('index');
+                Route::group(['middleware' => 'isValidUser'], function () {
+                    Route::get('/create', 'createShowcase')->name('create');
+                    Route::post('/store', 'storeShowcase')->name('store');
+                    Route::get('/edit/{slug}', 'editShowcase')->name('edit');
+                    Route::put('/update/{slug}', 'updateShowcase')->name('update');
+                    Route::delete('/delete', 'deleteShowcase')->name('delete');
+                });
+            });
         }
     );
 });

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{RateLimiter, Auth, Hash, Config, Storage};
 use App\Http\Requests\{UpdatePhotoRequest, UpdatePasswordRequest, UpdateUsernameRequest};
 
-final class DashboardController extends Controller
+class DashboardController extends Controller
 {
 
     private function checkCliRateLimiter(string $postType, $perMinute = 4): \Illuminate\Http\RedirectResponse|null
